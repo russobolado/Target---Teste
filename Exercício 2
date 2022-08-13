@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int verificaNum(int n,int p){
+  if(n==p)
+    return 1;
+  return -1;
+}
+
+int fibonacci(int num){
+  int n1=0,n2=1,n3=1,f1,f2,f3,f;
+  while(n3<num){
+    n1=n2;
+    n2=n3;
+    n3=n1+n2;
+  }
+  f1=verificaNum(n1,num);
+  f2=verificaNum(n2,num);
+  f3=verificaNum(n3,num);
+  if(f1==-1&&f2==-1&&f3==-1)
+    f=-1;
+  else
+    f=num;
+  return f;
+}
+
+void processaNum(){
+  int num,f;
+  printf("Digite o número que deseja verificar: ");
+  scanf("%d",&num);
+  f=fibonacci(num);
+  if(f==num)
+    printf("\nO número %d faz parte da sequência de Fibonacci.",f);
+  else
+    printf("\nNúmero fora da sequência.");
+}
+
+int main(){
+  processaNum();
+  return 0;
+}
